@@ -22,7 +22,7 @@ class ProductResource extends JsonResource
             "address" => $this->address,
             "price" => $this->price,
             "status" => $this->status,
-            "user" => new SellerResource($this->user),
+            //"user" => new SellerResource($this->user),
         ];
     }
 }
