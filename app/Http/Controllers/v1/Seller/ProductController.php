@@ -119,6 +119,24 @@ class ProductController extends Controller
         }
     }
 
+    public function updatePhoto(Request $request)
+    {
+        $photo = $request->file('image');
+        $filename = time() . '.' . $photo->getClientOriginalExtension();
+        $filepath = 'product/' . $filename;
+        Storage::disk('s3')->put($filepath, file_get_contents($photo));
+
+        $product = Product::findOrFail($id);
+        $product->image = Storage::disk('s3')->url($filepath, $filename);
+        $product->update();
+
+        return response()->json([
+            'message' => 'success update product',
+            'status' => true,
+            'data' =>(object)[]
+        ]);
+    }
+
     public function delete ($id){
         $data = Product::find($id);
         $data->delete();

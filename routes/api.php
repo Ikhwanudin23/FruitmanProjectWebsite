@@ -29,6 +29,7 @@ Route::group(['prefix' => 'seller'], function(){
 
     Route::post('product/store','v1\Seller\ProductController@store');
     Route::post('product/{id}/update','v1\Seller\ProductController@update');
+    Route::post('product/{id}/update/photo','v1\Seller\ProductController@updatePhoto');
     Route::get('product/{id}/delete','v1\Seller\ProductController@delete');
     Route::get('product/show','v1\Seller\ProductController@show');
 
