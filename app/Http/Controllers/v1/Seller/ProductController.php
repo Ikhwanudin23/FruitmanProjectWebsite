@@ -84,19 +84,6 @@ class ProductController extends Controller
     public function update($id, Request $request)
     {
         try {
-            $validator = Validator::make($request->all(), [
-                'name' => 'required',
-                'price' => 'required|numeric',
-            ]);
-
-            if ($validator->fails()) {
-                return response()->json([
-                    'message' => $validator->errors(),
-                    'status' => false,
-                    'data' => (object)[]
-                ]);
-            }
-
             $data = Product::findOrFail($id);
             $data->seller_id = Auth::user()->id;
             $data->name = $request->name;
@@ -108,7 +95,7 @@ class ProductController extends Controller
             return response()->json([
                 'message' => 'success update product',
                 'status' => true,
-                'data' => new ProductResource($data)
+                'data' => (object)[]
             ]);
         } catch (\Exception $exception) {
             return response()->json([
