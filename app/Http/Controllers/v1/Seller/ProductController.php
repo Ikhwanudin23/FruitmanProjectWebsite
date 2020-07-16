@@ -106,7 +106,7 @@ class ProductController extends Controller
         }
     }
 
-    public function updatePhoto(Request $request)
+    public function updatePhoto(Request $request, $id)
     {
         $photo = $request->file('image');
         $filename = time() . '.' . $photo->getClientOriginalExtension();
