@@ -52,8 +52,8 @@ Route::group(['prefix' => 'user'], function(){
     //Route::get('verify/{id}', 'v1\User\Auth\VerificationController@verify')->name('api.verification.verify');
     //Route::get('resend', 'v1\User\Auth\VerificationController@resend')->name('api.verification.resend');
 
-    Route::get('product','v1\Seller\ProductController@index');
-    Route::get('product/{name}/search','v1\Seller\ProductController@search');
+    Route::get('product','v1\User\ProductController@index');
+    Route::get('product/{name}/search','v1\User\ProductController@search');
 
     Route::post('order/store','v1\User\OrderController@store');
 
