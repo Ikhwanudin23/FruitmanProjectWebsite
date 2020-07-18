@@ -24,7 +24,7 @@ class RedirectIfAuthenticated
                 }
                 break;
 
-            default : return redirect()->route('home');
+            default : false;
         }
 
         return $next($request);
