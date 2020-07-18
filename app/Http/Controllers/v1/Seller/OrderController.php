@@ -108,17 +108,4 @@ class OrderController extends Controller
             'data' => (object)[],
         ]);
     }
-
-    public function arrived($id)
-    {
-        $order = Order::findOrFail($id);
-        $order->arrive = true;
-        $order->update();
-
-        return response()->json([
-            'message' => 'i arrive to your home',
-            'status' => true,
-            'data' => (object)[],
-        ]);
-    }
 }
