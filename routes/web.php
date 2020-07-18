@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('loginForm');
+    return view('auth-admin.loginForm');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('admin/login', function (){
     return view('auth-admin.login');
@@ -37,6 +37,6 @@ Route::group(['prefix' => 'admin'], function (){
     Route::get('userlist', 'BackOffice\UserController@index')->name('userlist.index');
     Route::get('sellerlist', 'BackOffice\SellerController@index')->name('sellerlist.index');
 
-    Route::post('login', 'Admin\AuthController@login')->name('admin.login');
-
+    Route::get('getlogin', 'Admin\AuthController@getLogin')->name('admin.getLogin');
+    Route::post('login', 'Admin\AuthController@login')->name('admin.login.submit');
 });

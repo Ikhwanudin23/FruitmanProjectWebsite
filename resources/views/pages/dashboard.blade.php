@@ -23,7 +23,7 @@
                                 <div class="round round-lg align-self-center round-info"><i class="mdi mdi-account-card-details"></i></div>
                                 <div class="m-l-10 align-self-center">
                                     <h3 class="m-b-0 font-light">{{$userlist}}</h3>
-                                    <h5 class="text-muted m-b-0">Total Pengguna Fruitman</h5></div>
+                                    <h5 class="text-muted m-b-0">Jumlah Pengepul</h5></div>
                             </div>
                         </div>
                     </div>
@@ -36,8 +36,8 @@
                             <div class="d-flex flex-row">
                                 <div class="round round-lg align-self-center round-warning"><i class="mdi mdi-account-card-details"></i></div>
                                 <div class="m-l-10 align-self-center">
-                                    <h3 class="m-b-0 font-lgiht"></h3>
-                                    <h5 class="text-muted m-b-0">Total Transaksi selesai</h5></div>
+                                    <h3 class="m-b-0 font-lgiht">{{$sellerlist}}</h3>
+                                    <h5 class="text-muted m-b-0">Jumlah Penebas pohon</h5></div>
                             </div>
                         </div>
                     </div>

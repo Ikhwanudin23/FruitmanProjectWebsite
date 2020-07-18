@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('verify/{id}', 'v1\VerificationEmailController@verify')->name('api.verification.verify');
+//Route::get('verify/{id}', 'v1\VerificationEmailController@verify')->name('api.verification.verify');
 
 //seller
 Route::group(['prefix' => 'seller'], function(){

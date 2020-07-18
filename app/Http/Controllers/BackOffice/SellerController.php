@@ -10,11 +10,12 @@ class SellerController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     public function index(){
-        $datas = Seller::all('pages.sellerlist', compact('datas'));
+        $datas = Seller::all();
+        return view('pages.seller', compact('datas'));
     }
 
 }
