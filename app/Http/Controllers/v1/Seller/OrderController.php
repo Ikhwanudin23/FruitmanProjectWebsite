@@ -86,6 +86,7 @@ class OrderController extends Controller
             ]);
         }else{
             $order->update(['status' => '0']);
+
             $token = $order->user->fcm_token;
             $message = "Pesanan di batalkan oleh penjual";
             $sendNotif = new FirebaseController();

@@ -38,7 +38,7 @@ Route::group(['prefix' => 'seller'], function(){
     //Route::get('order/completed', 'v1\Seller\OrderController@sellerCompleted');
     Route::get('order/complete', 'v1\Seller\OrderController@sellerComplete');
 
-    Route::get('order/{id}/decline','v1\User\OrderController@decline');
+    Route::get('order/{id}/decline','v1\Seller\OrderController@decline');
     Route::get('order/{id}/confirmed','v1\Seller\OrderController@confirmed');
     Route::get('order/{id}/completed', 'v1\Seller\OrderController@completed');
 
