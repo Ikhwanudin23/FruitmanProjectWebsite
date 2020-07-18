@@ -102,23 +102,23 @@ class OrderController extends Controller
                 'offer_price' => $request->offer_price,
             ]);
 
-            $token = $order->seller->fcm_token;
-            $message = "Ada Pesanan silahkan cek";
-
-            $optionBuilder = new OptionsBuilder();
-            $optionBuilder->setTimeToLive(60*20);
-
-            $notificationBuilder = new PayloadNotificationBuilder('FruitMan');
-            $notificationBuilder->setBody($message)->setSound('default');
-
-            $dataBuilder = new PayloadDataBuilder();
-            $dataBuilder->addData(['a_data' => 'my_data']);
-
-            $option = $optionBuilder->build();
-            $notification = $notificationBuilder->build();
-
-            $data = $dataBuilder->build();
-            FCM::sendTo($token, $option, $notification, $data);
+//            $token = $order->seller->fcm_token;
+//            $message = "Ada Pesanan silahkan cek";
+//
+//            $optionBuilder = new OptionsBuilder();
+//            $optionBuilder->setTimeToLive(60*20);
+//
+//            $notificationBuilder = new PayloadNotificationBuilder('FruitMan');
+//            $notificationBuilder->setBody($message)->setSound('default');
+//
+//            $dataBuilder = new PayloadDataBuilder();
+//            $dataBuilder->addData(['a_data' => 'my_data']);
+//
+//            $option = $optionBuilder->build();
+//            $notification = $notificationBuilder->build();
+//
+//            $data = $dataBuilder->build();
+//            FCM::sendTo($token, $option, $notification, $data);
 
             return response()->json([
                 'message' => 'success',
