@@ -24,7 +24,8 @@ Route::group(['prefix' => 'seller'], function(){
     Route::post('register', 'v1\Seller\Auth\RegisterController@register');
     Route::post('login', 'v1\Seller\Auth\LoginController@login');
     Route::get('profile', 'v1\Seller\ProfileController@profile');
-    Route::post('profile/update', 'v1\Seller\ProfileController@updateprofile');
+    Route::post('profile/update', 'v1\Seller\ProfileController@updateProfile');
+    Route::post('profile/update/photo', 'v1\Seller\ProfileController@updatePhoto');
     Route::get('verify/{id}', 'v1\Seller\Auth\VerificationController@verify')->name('seller.verification.verify');
 
     Route::post('product/store','v1\Seller\ProductController@store');
@@ -49,7 +50,8 @@ Route::group(['prefix' => 'user'], function(){
     Route::post('register', 'v1\User\Auth\RegisterController@register');
     Route::post('login', 'v1\User\Auth\LoginController@login');
     Route::get('profile', 'v1\User\ProfileController@profile');
-    Route::post('profile/update', 'v1\User\ProfileController@updateprofile');
+    Route::post('profile/update', 'v1\User\ProfileController@updateProfile');
+    Route::post('profile/update/photo', 'v1\User\ProfileController@updatePhoto');
     Route::get('verify/{id}', 'v1\User\Auth\VerificationController@verify')->name('user.verification.verify');
     //Route::get('verify/{id}', 'v1\User\Auth\VerificationController@verify')->name('api.verification.verify');
     //Route::get('resend', 'v1\User\Auth\VerificationController@resend')->name('api.verification.resend');

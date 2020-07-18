@@ -6,6 +6,7 @@ use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -25,7 +26,25 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function updateprofile(Request $request)
+    public function updatePhoto(Request $request)
+    {
+        $photo = $request->file('image');
+        $filename = time() . '.' . $photo->getClientOriginalExtension();
+        $filepath = 'product/' . $filename;
+        Storage::disk('s3')->put($filepath, file_get_contents($photo));
+
+        $user = Auth::guard('api')->user();
+        $user->image = Storage::disk('s3')->url($filepath, $filename);
+        $user->update();
+
+        return response()->json([
+            'message' => 'successfully update profile',
+            'status' => true,
+            'data' => $user
+        ]);
+    }
+
+    public function updateProfile(Request $request)
     {
         $user = Auth::guard('api')->user();
         $user->name = $request->name;
@@ -33,6 +52,7 @@ class ProfileController extends Controller
         $user->address = $request->address;
         $user->phone = $request->phone;
         $user->update();
+
         return response()->json([
             'message' => 'successfully update profile',
             'status' => true,
