@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\v1\Seller;
 
+use App\Http\Controllers\v1\FirebaseController;
 use App\Http\Resources\Seller\OrderResource;
 use App\Order;
 use Illuminate\Http\Request;
@@ -85,6 +86,10 @@ class OrderController extends Controller
             ]);
         }else{
             $order->update(['status' => '0']);
+            $token = $order->user->fcm_token;
+            $message = "Pesanan di batalkan oleh penjual";
+            $sendNotif = new FirebaseController();
+            $sendNotif->sendNotificationFirebase($token, $message);
 
             return response()->json([
                 'message' => 'successfully decline order',

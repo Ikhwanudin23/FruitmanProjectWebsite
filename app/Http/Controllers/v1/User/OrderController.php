@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers\v1\User;
 
+use App\Http\Controllers\v1\FirebaseController;
 use App\Http\Resources\User\OrderResource;
 use App\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use LaravelFCM\Message\OptionsBuilder;
-use LaravelFCM\Message\PayloadDataBuilder;
-use LaravelFCM\Message\PayloadNotificationBuilder;
-use FCM;
+
 
 class OrderController extends Controller
 {
     public function __construct()
     {
+
         $this->middleware("auth:api");
     }
 
@@ -70,6 +69,11 @@ class OrderController extends Controller
         }else{
             $order->update(['status' => '0']);
 
+            $token = $order->seller->fcm_token;
+            $message = "Pesanan di batalkan oleh pembeli";
+            $sendNotif = new FirebaseController();
+            $sendNotif->sendNotificationFirebase($token, $message);
+
             return response()->json([
                 'message' => 'successfully decline order',
                 'status' => true,
@@ -95,21 +99,10 @@ class OrderController extends Controller
                 'offer_price' => $request->offer_price,
             ]);
 
-//            $optionBuilder = new OptionsBuilder();
-//            $optionBuilder->setTimeToLive(60*20);
-//
-//            $notificationBuilder = new PayloadNotificationBuilder('my title');
-//            $notificationBuilder->setBody('Hello world')->setSound('default');
-//
-//            $dataBuilder = new PayloadDataBuilder();
-//            $dataBuilder->addData(['a_data' => 'my_data']);
-//
-//            $option = $optionBuilder->build();
-//            $notification = $notificationBuilder->build();
-//
-//            $data = $dataBuilder->build();
-//            $token = $order->seller->fcm_token;
-//            $downstreamResponse = FCM::sendTo($token, $option, $notification, $data);
+            $token = $order->seller->fcm_token;
+            $message = "Ada Pesanan silahkan cek";
+            $sendNotif = new FirebaseController();
+            $sendNotif->sendNotificationFirebase($token, $message);
 
             return response()->json([
                 'message' => 'success',
@@ -132,6 +125,10 @@ class OrderController extends Controller
         $order->arrive = true;
         $order->update();
 
+        $token = $order->seller->fcm_token;
+        $message = "Seller sudah sampai";
+        $sendNotif = new FirebaseController();
+        $sendNotif->sendNotificationFirebase($token, $message);
         return response()->json([
             'message' => 'i arrive to your home',
             'status' => true,
