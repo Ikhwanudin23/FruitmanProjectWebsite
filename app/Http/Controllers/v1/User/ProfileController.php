@@ -46,17 +46,29 @@ class ProfileController extends Controller
 
     public function updateProfile(Request $request)
     {
-        $user = Auth::guard('api')->user();
-        $user->name = $request->name;
-        $user->password = $request->password;
-        $user->address = $request->address;
-        $user->phone = $request->phone;
-        $user->update();
-
-        return response()->json([
-            'message' => 'successfully update profile',
-            'status' => true,
-            'data' => $user
-        ]);
+        if ($request->password == null || empty($request->password)){
+            $user = Auth::guard('api')->user();
+            $user->name = $request->name;
+            $user->address = $request->address;
+            $user->phone = $request->phone;
+            $user->save();
+            return response()->json([
+                'message' => 'successfully update profile',
+                'status' => true,
+                'data' => $user
+            ]);
+        }else{
+            $user = Auth::guard('api')->user();
+            $user->name = $request->name;
+            $user->address = $request->address;
+            $user->password = $request->password;
+            $user->phone = $request->phone;
+            $user->save();
+            return response()->json([
+                'message' => 'successfully update profile',
+                'status' => true,
+                'data' => $user
+            ]);
+        }
     }
 }
