@@ -23,8 +23,6 @@ class ProductController extends Controller
         try {
             $fruits = Product::where('seller_id', Auth::user()->id)->get();
 
-
-
             return response()->json([
                 'message' => 'success',
                 'status' => true,

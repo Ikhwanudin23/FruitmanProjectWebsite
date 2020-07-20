@@ -13,4 +13,9 @@ class Product extends Model
         return $this->belongsTo(Seller::class, 'seller_id', 'id');
     }
 
+    public function order()
+    {
+        return $this->hasOne(Order::class, 'product_id', 'id');
+    }
+
 }
