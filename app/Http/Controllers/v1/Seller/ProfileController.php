@@ -35,7 +35,7 @@ class ProfileController extends Controller
 
         $user = Auth::guard('seller-api')->user();
         $user->image = Storage::disk('s3')->url($filepath, $filename);
-        $user->update();
+        $user->save();
 
         return response()->json([
             'message' => 'successfully update profile',
@@ -51,7 +51,7 @@ class ProfileController extends Controller
         $user->password = $request->password;
         $user->address = $request->address;
         $user->phone = $request->phone;
-        $user->update();
+        $user->save();
         return response()->json([
             'message' => 'successfully update profile',
             'status' => true,

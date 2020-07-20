@@ -66,6 +66,10 @@ class OrderController extends Controller
             ]);
         }else{
             $order->update(['status' => '2']);
+            $token = $order->user->fcm_token;
+            $message = "Pesanan di konfirmasi oleh penjual";
+            $sendNotif = new FirebaseController();
+            $sendNotif->sendNotificationFirebase($token, $message);
 
             return response()->json([
                 'message' => 'successfully confirmed order',
