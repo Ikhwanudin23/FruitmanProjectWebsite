@@ -19,11 +19,18 @@ class ProductController extends Controller
         try {
 
             $products = Product::where('status', true)->get();
+            $results = [];
+            foreach ($products as $product) {
+                if (!$product->order || $product->order['status'] != '2') {
+                    array_push($results, $product);
+                }
+            }
+
 
             return response()->json([
                 'message' => 'success',
                 'status' => true,
-                'data' => ProductResource::collection($products),
+                'data' => ProductResource::collection(collect($results)),
             ]);
 
         } catch (\Exception $exception) {
