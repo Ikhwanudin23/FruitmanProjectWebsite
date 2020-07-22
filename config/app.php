@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         LaravelFCM\FCMServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -227,6 +228,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'FCM'      => LaravelFCM\Facades\FCM::class,
         'FCMGroup' => LaravelFCM\Facades\FCMGroup::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+
 
     ],
 

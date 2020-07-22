@@ -33,11 +33,11 @@
                         <li><a class="has-arrow waves-effect waves-dark" href="{{route('sellerlist.index')}}" aria-expanded="false"><i class="mdi mdi-account-card-details"></i>&nbsp;&nbsp;&nbsp;Profil User Penebas</a></li>
                     </ul>
                 </li>
-                {{--<li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-circle"></i><span class="hide-menu">Penjual</span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="" aria-expanded="false"><i class="mdi mdi-account-circle"></i><span class="hide-menu">Laporan</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a class="has-arrow waves-effect waves-dark" href="{{route('seller.index')}}" aria-expanded="false"><i class="mdi mdi-account-card-details"></i>&nbsp;&nbsp;&nbsp;Dafar Penjual</a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="{{route('report.index')}}" aria-expanded="false"><i class="mdi mdi-account-card-details"></i>&nbsp;&nbsp;&nbsp;Data Transaksi User</a></li>
                     </ul>
-                </li>--}}
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
@@ -46,6 +46,7 @@
     <!-- Bottom points-->
     <div class="sidebar-footer">
 
+    </div>
     </div>
     <!-- End Bottom points-->
 </aside>

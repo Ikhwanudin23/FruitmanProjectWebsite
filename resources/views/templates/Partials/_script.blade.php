@@ -91,6 +91,20 @@ DATA TABLE SCRIPT--}}
         ]
     });
 </script>
+<script>
+    $(document).ready(function() {
+        $("#print").click(function() {
+            var mode = 'iframe'; //popup
+            var close = mode == "popup";
+            var options = {
+                mode: mode,
+                popClose: close
+            };
+            $("div.printableArea").printArea(options);
+        });
+    });
+</script>
+<script src="{{asset('assets/js/jquery.PrintArea.js')}}" type="text/JavaScript"></script>
 <!-- ============================================================== -->
 <!-- Style switcher -->
 <!-- ============================================================== -->
