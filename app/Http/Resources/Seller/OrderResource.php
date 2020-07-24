@@ -20,8 +20,8 @@ class OrderResource extends JsonResource
             "product" => new ProductResource($this->product),
             "offer_price" => $this->offer_price,
             "status" => $this->status,
-            "arrive" => $this->arrive,
-            "completed" => $this->completed
+            "arrive" => $this->arrive  == "1" ? true : false,
+            "completed" => $this->completed  == "1" ? true : false,
         ];
     }
 }
