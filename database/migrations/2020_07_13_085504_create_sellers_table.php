@@ -15,12 +15,12 @@ class CreateSellersTable extends Migration
     {
         Schema::create('sellers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('name','50');
+            $table->string('email','50')->unique();
             $table->text('password');
             $table->string('image')->default('assets/upload/user/default.png')->nullable();
-            $table->text('address')->nullable();
-            $table->string('phone')->nullable();
+            $table->text('address','190')->nullable();
+            $table->string('phone','14')->nullable();
             $table->boolean('status')->default(true);
             $table->string('api_token')->unique();
             $table->string('fcm_token')->nullable();

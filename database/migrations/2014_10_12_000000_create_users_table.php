@@ -15,12 +15,12 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->text('password');
+            $table->string('name','50');
+            $table->string('email','50')->unique();
+            $table->text('password','50');
             $table->string('image')->default('assets/upload/user/default.png')->nullable();
             $table->text('address')->nullable();
-            $table->string('phone')->nullable();
+            $table->string('phone','14')->nullable();
             $table->boolean('status')->default(true);
             $table->string('api_token')->unique();
             $table->string('fcm_token')->nullable();
