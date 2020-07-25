@@ -26,7 +26,7 @@
                             <th>Email</th>
                             <th>Foto</th>
                             <th>Alamat</th>
-                            <th>Status</th>
+                            <th>Bergabung Pada</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -37,10 +37,7 @@
                                 <td>{{$data->email}}</td>
                                 <td><img src="{{ $data->image }}" width="40px" height="40px"></td>
                                 <td>{{$data->address}}</td>
-                                <td><span class="badge badge-{{$data->status == '1' ? 'success'  : 'danger'}}">
-                                        {{$data->status == '1' ? 'Aktif'  : 'Tidak Aktif'}}
-                                    </span>
-                                </td>
+                                <td>{{$data->created_at}}</td>
                             </tr>
                         @endforeach
                         </tbody>
