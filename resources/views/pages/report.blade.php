@@ -15,7 +15,7 @@
         <div class="card-body printableArea">
             <h4 class="card-title">Daftar Penjual Buah</h4>
             <h6 class="card-subtitle"><b>FruitMan Application Development</b></h6>
-            <a href="{{route('report.print')}}" class="btn btn-default btn-outline"> <span><i class="fa fa-print"></i> </span> Halo </a>
+            <a href="{{route('report.print')}}" class="btn btn-default btn-outline"> <span><i class="fa fa-print"></i> </span> Print </a>
             <div class="table-responsive m-t-10">
                 <div id="myTable_wrapper" class="dataTables_wrapper no-footer">
                     <table id="myTable" class="table table-bordered table-striped dataTable no-footer" role="grid"
