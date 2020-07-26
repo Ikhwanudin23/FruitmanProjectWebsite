@@ -31,7 +31,7 @@
             <form class="login100-form validate-form" method="POST" action="{{ route('admin.login.submit') }}">
                 @csrf
                 <div class="login100-form-avatar">
-                    <img src="{{asset('assets/upload/user/admin.png')}}" alt="AVATAR">
+                    <img src="{{asset('assets/AssetsLoginForm/images/avatar-01.png')}}" alt="AVATAR">
                 </div>
 
                 <span class="login100-form-title p-t-20 p-b-45">
